@@ -1,6 +1,6 @@
 ############# CONNECT COMMAND LINE CMD TO REMOTE GIT REPOSITORY ############
 
-Open Git Bash and Navigate to the local repository you wish 
+Open Git Bash and Navigate to the local repository you wish to link to your github.
 
 1 - Create a GitHub SSH key pair with the ssh-keygen command
 
