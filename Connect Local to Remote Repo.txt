@@ -1,0 +1,53 @@
+############# CONNECT COMMAND LINE CMD TO REMOTE GIT REPOSITORY ############
+
+Open Git Bash and Navigate to the local repository you wish 
+
+1 - Create a GitHub SSH key pair with the ssh-keygen command
+
+	- ssh-keygen -t rsa -b 4096 -C "email_address"
+
+		- Enter the key name and passphrase (password)
+
+		- In your local directory open the file key_name.pub with Notepad
+
+
+2 - Copy the value of the public SSH key to the clipboard
+
+	- The key value should be a long hash value looking like this:
+		
+		- ssh-rsa ........Z55sF7H+ESfQ== email address
+
+
+3 - Login to GitHub and navigate to your directory and click "Settings"
+
+
+4 - Scroll down, click "Deploy keys" and click "Add deploy key"
+
+	- Name the key and Paste the value copied from Notepad
+
+	- Check "Allow write access" and click "Add key"
+
+
+5 - In your git bash, enter the following commands:
+
+	- cat ~/.ssh/id_rsa.pub | clip
+
+	- ssh -T git@github.com
+
+	- git remote set-url origin git@github.com:username/your-repository.git
+
+	- eval `ssh-agent -s`
+
+	- ssh-add <key_name>
+
+The last 2 Commands are very import for this to work
+
+
+6 - Perform your normal git activities
+
+	- git add .
+
+	- git commit -m "Message"
+
+	- git push Origin master
+
